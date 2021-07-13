@@ -18,7 +18,7 @@ app.use('/route', route);
 
 // root functions and starting the server
 app.get('/', (req: express.Request, res: express.Response) => {
-    res.send("This is API for videokanava.fi")
+    res.send("This is a template for Node.JS/Express API with TypeScript")
 });
 
 app.listen(port, () => {
