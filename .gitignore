@@ -1,0 +1,10 @@
+# dependencies
+/node_modules
+/.env
+/ecosystem.config.js
+
+# production folder
+/dist
+
+# development folder
+/dev
