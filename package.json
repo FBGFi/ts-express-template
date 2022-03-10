@@ -6,9 +6,9 @@
   "scripts": {
     "prebuild-production": "tslint -c src/tslint.json -p tsconfig.json --fix",
     "test": "npx mocha -r tsconfig-paths/register -r ts-node/register -r dotenv/config ./src/**/*.test.ts",
-    "clean": "rd /s /q dist && rm -rf dist",
-    "copy-public": "xcopy .\\src\\public .\\dist\\public /i /s && cp ./src/public/ ./dist/",
-    "build": "npm run prebuild-production && npm run clean --force && npx webpack && npm run copy-public --force",
+    "clean": "rd /s /q dist || rm -rf dist",
+    "copy-public": "xcopy .\\src\\public .\\dist\\public /i /s || cp ./src/public/ ./dist/",
+    "build": "npm run prebuild-production && (npm run clean || true) && npx webpack && (npm run copy-public || true)",
     "start": "node ./dist/server.js",
     "production": "npm run build && npm run start",
     "dev:server": "set PORT=3001 && npx nodemon -r dotenv/config -r tsconfig-paths/register --watch ./src --exec ts-node ./src/server.ts"
